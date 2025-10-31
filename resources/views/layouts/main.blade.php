@@ -9,8 +9,8 @@
 </head>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <body class="bg-gray-50 text-gray-800"
-      style="background-image: url('{{ asset('images/bgadmin.png') }}');
-             background-size: cover;
+      style="background-image: white;
+            background-size: cover;
              background-position: center;
              background-repeat: no-repeat;">
 

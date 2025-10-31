@@ -10,6 +10,19 @@
         @csrf
 
         <div>
+            <label class="block font-medium text-gray-700 mb-1">Nomor Sertifikat</label>
+            <input type="text" 
+                name="nomor_sertifikat" 
+                class="border rounded-lg w-full px-3 py-2" 
+                placeholder="Contoh: YMP-S-010108202513"
+                value="{{ old('nomor_sertifikat') }}">
+                
+            @error('nomor_sertifikat') 
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p> 
+            @enderror
+        </div>
+
+        <div>
             <label class="block font-medium text-gray-700 mb-1">Nama Peserta</label>
             <select name="user_id" class="border rounded-lg w-full px-3 py-2">
                 <option value="">-- Pilih Peserta --</option>
