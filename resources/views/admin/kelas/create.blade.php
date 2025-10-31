@@ -3,7 +3,7 @@
 @section('title', 'Tambah Kelas')
 
 @section('content')
-<div class="p-6 bg-white rounded-xl shadow">
+<div class="p-6 w-full h-full bg-white/60 rounded-xl shadow">
     <div class="my-5">
         <a href="{{ route('admin.kelas.index') }}" class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-2 rounded-lg shadow transition">
                 Kembali

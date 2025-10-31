@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="p-6 bg-white rounded-xl shadow-md max-w-3xl mx-auto"> <h2 class="text-2xl font-semibold text-gray-800 mb-6">Tambah Jadwal</h2>
+<div class="p-6 w-full h-full bg-white/60 rounded-xl shadow-md max-w-3xl mx-auto"> <h2 class="text-2xl font-semibold text-gray-800 mb-6">Tambah Jadwal</h2>
 <form action="{{ route('admin.jadwal.store') }}" method="POST" class="space-y-5">
     @csrf
 

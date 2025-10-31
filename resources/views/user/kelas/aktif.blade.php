@@ -4,10 +4,9 @@
 
 @section('content')
 
-<div class="p-6 w-full h-full bg-white rounded-xl shadow">
+<div class="p-6 w-full h-full bg-white/60 rounded-xl shadow">
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-2xl font-semibold text-gray-800">Kelas Aktif Saya</h2>
-        <a href="{{ route('user.kelas.histori') }}" class="text-yellow-600 hover:underline">Lihat Riwayat</a>
     </div>
     @if($jadwalAktif->isEmpty())
     <p class="text-gray-500 italic text-center">Belum ada kelas aktif yang sedang berlangsung.</p>
