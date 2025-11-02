@@ -59,6 +59,12 @@ class AuthController extends Controller
         return redirect()->back()->with('success', 'Akun berhasil dibuat!');
     }
 
+    public function peserta()
+    {
+        $peserta = User::where('role', 'user')->get();
+        return view('admin.peserta.index', compact('peserta'));
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();

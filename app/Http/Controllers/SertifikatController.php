@@ -27,6 +27,7 @@ class SertifikatController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
+            'nomor_sertifikat' => 'required|string|max:25',
             'user_id' => 'required|exists:users,id',
             'kelas_id' => 'required|exists:kelas,id',
             'link' => 'nullable|url',
@@ -35,7 +36,7 @@ class SertifikatController extends Controller
         Sertifikat::create([
             'user_id' => $data['user_id'],
             'kelas_id' => $data['kelas_id'],
-            'nomor_sertifikat' => $data['nomor_sertifikat'],
+            'nomor_sertifikat' => $request->nomor_sertifikat,
             'link' => $data['link'] ?? null,
             'tanggal_diterbitkan' => now(),
         ]);

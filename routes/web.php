@@ -26,6 +26,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/kelas/{kela}/edit', [KelasController::class, 'edit'])->name('admin.kelas.edit');
     Route::put('/admin/kelas/{kela}', [KelasController::class, 'update'])->name('admin.kelas.update');
     Route::delete('/admin/kelas/{kela}', [KelasController::class, 'destroy'])->name('admin.kelas.destroy');
+    Route::get('/admin/peserta', [AuthController::class, 'peserta'])->name('admin.peserta.index');});
+
 
     Route::prefix('admin')->name('admin.')->middleware(['auth', 'role:admin'])->group(function () {
         Route::get('jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
@@ -43,7 +45,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('sertifikat', [SertifikatController::class, 'store'])->name('sertifikat.store');
         Route::delete('sertifikat/{sertifikat}', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
     });
-});
 
 
 Route::middleware(['auth', 'role:user'])->group(function () {

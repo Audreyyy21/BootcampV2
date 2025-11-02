@@ -20,6 +20,15 @@
                 </span>
                 Registrasi Peserta
             </a>
+            <a href="{{ route('admin.peserta.index') }}" class="flex items-center px-4 py-3 font-semibold rounded-2xl bg-white hover:bg-yellow-400 hover:text-white transition-all duration-200 ease-in-out shadow-sm border border-gray-300
+            {{ request()->routeIs('admin.peserta.index') ? 'bg-yellow-400 text-black' : 'bg-white text-black' }}">
+                <span class="mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5a4.5 4.5 0 1 0-9 0 4.5 4.5 0 0 0 9 0ZM3.75 21a8.25 8.25 0 1 1 16.5 0h-16.5Z" />
+                    </svg>
+                </span>
+                Peserta
+            </a>
             <a href="{{ route('admin.kelas.index') }}" class="flex items-center px-4 py-3 font-semibold rounded-2xl bg-white hover:bg-yellow-400 hover:text-white transition-all duration-200 ease-in-out shadow-sm border border-gray-300
             {{ request()->routeIs('admin.kelas.index') ? 'bg-yellow-400 text-black' : 'bg-white text-black' }}">
                 <span class="mr-3">
