@@ -98,6 +98,20 @@
                 </span>
                 Sertifikat
             </a>
+            {{-- Menu Tambahan Pengaturan Akun --}}
+           <a href="{{ route('setting.index') }}" 
+            class="flex items-center px-4 py-3 font-semibold rounded-2xl bg-white hover:bg-yellow-400 hover:text-white transition-all duration-200 ease-in-out shadow-sm border border-gray-300
+            {{ request()->routeIs('setting.index') ? 'bg-yellow-400 text-black' : 'bg-white text-black' }}">
+                
+                <span class="mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h.008v.008H10.5V6Zm0 6h.008v.008H10.5V12Zm0 6h.008v.008H10.5V18Zm3-12h3.75a.75.75 0 01.75.75v14.25a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V4.75a.75.75 0 01.75-.75h3.75M9 6v.008H9V6Zm0 6v.008H9V12Zm0 6v.008H9V18Z"/>
+                    </svg>
+                </span>
+                Profile
+            </a>
+
+
             @endif
         </nav>
     </div>

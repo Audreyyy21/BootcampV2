@@ -65,6 +65,38 @@ class AuthController extends Controller
         return view('admin.peserta.index', compact('peserta'));
     }
 
+   public function editPeserta($id)
+    {
+        $peserta = User::findOrFail($id);
+        return view('admin.peserta.edit', compact('peserta'));
+    }
+
+    public function updatePeserta(Request $request, $id)
+    {
+        $peserta = User::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $id,
+        ]);
+
+        $peserta->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect()->route('admin.peserta.index')->with('success', 'Data peserta berhasil diperbarui');
+    }
+
+    public function deletePeserta($id)
+    {
+        $peserta = User::findOrFail($id);
+        $peserta->delete();
+
+        return back()->with('success', 'Peserta berhasil dihapus');
+    }
+
+
     public function logout(Request $request)
     {
         Auth::logout();
