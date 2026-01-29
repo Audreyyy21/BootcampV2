@@ -7,6 +7,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\UserKelasController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\AbsensiController;
 
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -52,6 +53,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('sertifikat', [SertifikatController::class, 'store'])->name('sertifikat.store');
         Route::delete('sertifikat/{sertifikat}', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
     });
+
+    // Absensi
+    Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.index');
+        Route::get('/absensi/kelas/{kelas}', [AbsensiController::class, 'show'])->name('absensi.show');
+        Route::post('/absensi/kelas/{kelas}', [AbsensiController::class, 'update'])->name('absensi.update');
+    });
 }); // ✅ tutup group admin
 
 // ====================== USER ======================
@@ -68,6 +76,11 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
     Route::get('/user/sertifikat', [\App\Http\Controllers\UserSertifikatController::class, 'index'])->name('user.sertifikat.index');
     Route::get('/user/sertifikat/{id}/download', [\App\Http\Controllers\UserSertifikatController::class, 'download'])->name('user.sertifikat.download');
+
+    // Route::get('/user/kelas', [UserKelasController::class, 'index'])->name('user.kelas.index');
+    // Route::get('/user/kelas/{kelas}', [UserKelasController::class, 'show'])->name('user.kelas.show');
+    Route::get('/user/kelas/detail/{jadwal}', [UserKelasController::class, 'detail'])
+        ->name('user.kelas.detail');
 });
 
 // Default redirect

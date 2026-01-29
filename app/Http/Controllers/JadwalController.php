@@ -30,11 +30,13 @@ class JadwalController extends Controller
             'tanggal_mulai' => 'nullable|date',
             'tanggal_selesai' => 'nullable|date',
             'status' => 'required|in:aktif,selesai,batal',
+            'gmeet_link' => 'nullable|url', // ✅ TAMBAH INI
         ]);
 
         Jadwal::create($data);
 
-        return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil ditambahkan!');
+        return redirect()->route('admin.jadwal.index')
+            ->with('success', 'Jadwal berhasil ditambahkan!');
     }
 
     public function edit(Jadwal $jadwal)
@@ -52,16 +54,19 @@ class JadwalController extends Controller
             'tanggal_mulai' => 'nullable|date',
             'tanggal_selesai' => 'nullable|date',
             'status' => 'required|in:aktif,selesai,batal',
+            'gmeet_link' => 'nullable|url', // ✅ TAMBAH INI
         ]);
 
         $jadwal->update($data);
 
-        return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil diperbarui!');
+        return redirect()->route('admin.jadwal.index')
+            ->with('success', 'Jadwal berhasil diperbarui!');
     }
 
     public function destroy(Jadwal $jadwal)
     {
         $jadwal->delete();
-        return redirect()->route('admin.jadwal.index')->with('success', 'Jadwal berhasil dihapus!');
+        return redirect()->route('admin.jadwal.index')
+            ->with('success', 'Jadwal berhasil dihapus!');
     }
 }

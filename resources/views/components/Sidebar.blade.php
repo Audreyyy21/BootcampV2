@@ -59,6 +59,15 @@
                 </span>
                 Sertifikat
             </a>
+            <a href="{{ route('admin.absensi.index') }}" class="flex items-center px-4 py-3 font-semibold rounded-2xl bg-white hover:bg-yellow-400 hover:text-white transition-all duration-200 ease-in-out shadow-sm border border-gray-300
+            {{ request()->routeIs('admin.absensi.*') ? 'bg-yellow-400 text-black' : 'bg-white text-black' }}">
+                <span class="mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                </span>
+                Absensi
+            </a>
             @endif
             @if (Auth::user()->role === 'user')
             <a href="{{ route('user.dashboard') }}" class="flex items-center px-4 py-3 font-semibold rounded-2xl bg-white hover:bg-yellow-400 hover:text-white transition-all duration-200 ease-in-out shadow-sm border border-gray-300

@@ -12,12 +12,22 @@ class Jadwal extends Model
     protected $table = 'jadwal';
 
     protected $fillable = [
-        'user_id',
-        'kelas_id',
-        'tanggal_mulai',
-        'tanggal_selesai',
-        'status',
-    ];
+    'user_id',
+    'kelas_id',
+    'tanggal_mulai',
+    'tanggal_selesai',
+    'status',
+    'gmeet_link',
+    'is_hadir',
+    'hadir_at',
+];
+
+
+protected $casts = [
+    'is_hadir' => 'boolean',
+    'hadir_at' => 'datetime',
+];
+
 
     public function user()
     {
